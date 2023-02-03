@@ -1,21 +1,47 @@
-function newMap() {
-  // Reproduza aqui o seu método map
-}
+function newMap(array, callBack) {
+  const newValue = []
 
-function newFilter() {
-  // Reproduza aqui o seu método filter
-}
-
-function newFind() {
-  // Reproduza aqui o seu método find
-}
-
-function newReduce() {
-  // Reproduza aqui o seu método Reuce
+  for (let i = 0; i < array.length; i++) {
+    newValue.push(callBack(array[i]))
+  }
+  return newValue
 }
 
 
+function newFilter(array, callBack) {
+  const filtered = []
 
+  for (let i = 0; i < array.length; i++) {
+    if (callBack(array[i])) {
+      filtered.push(array[i])
+    }
+  }
+  return filtered;
+}
+
+function newFind(array, callBack) {
+
+  for (let i = 0; i < array.length; i++) {
+
+    if (callBack(array[i])) {
+      return array[i];
+    }
+  }
+}
+
+function newReduce(array, callback, value) {
+  value = 0
+  let newValue = 0
+  let element = 0
+
+  for (let i = 0; i < array.length; i++) {
+    const sum = array[i]
+    newValue = newValue + callback(element, sum, i, array)
+
+  }
+  
+  return newValue
+}
 
 
 
