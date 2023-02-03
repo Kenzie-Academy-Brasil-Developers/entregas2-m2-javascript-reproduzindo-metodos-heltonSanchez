@@ -29,18 +29,15 @@ function newFind(array, callBack) {
   }
 }
 
-function newReduce(array, callback, value) {
-  value = 0
-  let newValue = 0
-  let element = 0
+function newReduce(array, callback, value = 0) {
+  let acumulator = value
 
   for (let i = 0; i < array.length; i++) {
-    const sum = array[i]
-    newValue = newValue + callback(element, sum, i, array)
-
+    const actual = array[i]
+    acumulator = callback(acumulator, actual, i, array)
   }
   
-  return newValue
+  return acumulator;
 }
 
 
